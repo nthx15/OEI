@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstructorPro - Ingeniería y Construcción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #ed8936;
+            --accent-color: #4a5568;
+            --light-bg: #f7fafc;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23718096" width="1200" height="600"/><g fill-opacity="0.1"><circle fill="%23ffffff" cx="200" cy="150" r="80"/><circle fill="%23ffffff" cx="600" cy="300" r="120"/><circle fill="%23ffffff" cx="1000" cy="200" r="100"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 6rem;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #d97706;
+            border-color: #d97706;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .stats-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+            background: linear-gradient(45deg, #718096, #4a5568);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.8));
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .contact-section {
+            background-color: var(--light-bg);
+            padding: 5rem 0;
+        }
+        
+        .contact-info {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            height: 100%;
+        }
+        
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 1rem;
+        }
+        
+        footer {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section {
+                padding: 5rem 0 4rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-color);">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-hard-hat me-2"></i>ConstructorPro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#proyectos">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Construyendo el Futuro</h1>
+                    <p class="lead">Especialistas en ingeniería y construcción con más de 15 años de experiencia. Transformamos tus ideas en realidades sólidas y duraderas.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#contacto" class="btn btn-primary-custom btn-lg">Solicitar Cotización</a>
+                        <a href="#proyectos" class="btn btn-outline-light btn-lg">Ver Proyectos</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <i class="fas fa-building display-1 mb-4" style="color: var(--secondary-color);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Nuestros Servicios</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-drafting-compass service-icon"></i>
+                            <h4>Diseño Arquitectónico</h4>
+                            <p>Creamos diseños innovadores y funcionales adaptados a tus necesidades específicas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-hammer service-icon"></i>
+                            <h4>Construcción</h4>
+                            <p>Ejecutamos proyectos de construcción con los más altos estándares de calidad y seguridad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-cog service-icon"></i>
+                            <h4>Ingeniería Civil</h4>
+                            <p>Soluciones integrales de ingeniería para proyectos de infraestructura y obras civiles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-home service-icon"></i>
+                            <h4>Construcción Residencial</h4>
+                            <p>Construcción de viviendas personalizadas con acabados de primera calidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-industry service-icon"></i>
+                            <h4>Obras Industriales</h4>
+                            <p>Especialistas en construcción industrial, naves y plantas de producción.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card p-4 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-tools service-icon"></i>
+                            <h4>Remodelaciones</h4>
+                            <p>Renovamos y modernizamos espacios existentes con diseños contemporáneos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-number">150+</div>
+                    <h4>Proyectos Completados</h4>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-number">15+</div>
+                    <h4>Años de Experiencia</h4>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-number">50+</div>
+                    <h4>Clientes Satisfechos</h4>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-number">25+</div>
+                    <h4>Profesionales</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Proyectos Destacados</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-overlay">
+                            <div>
+                                <h4>Torre Corporativa</h4>
+                                <p>Edificio de oficinas de 20 pisos en el centro de la ciudad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-overlay">
+                            <div>
+                                <h4>Complejo Residencial</h4>
+                                <p>Desarrollo habitacional de lujo con 100 unidades</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-overlay">
+                            <div>
+                                <h4>Centro Comercial</h4>
+                                <p>Plaza comercial moderna con área de entretenimiento</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-overlay">
+                            <div>
+                                <h4>Hospital Regional</h4>
+                                <p>Instalaciones médicas de última generación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-overlay">
+                            <div>
+                                <h4>Universidad Privada</h4>
+                                <p>Campus universitario con tecnología avanzada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-overlay">
+                            <div>
+                                <h4>Planta Industrial</h4>
+                                <p>Nave industrial para manufactura automotriz</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-5" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sobre Nosotros</h2>
+                    <p class="lead">Somos una empresa líder en el sector de la construcción e ingeniería, con más de 15 años de experiencia transformando proyectos en realidades exitosas.</p>
+                    <p>Nuestro equipo multidisciplinario de arquitectos, ingenieros y constructores trabaja con dedicación para entregar obras de la más alta calidad, cumpliendo con los tiempos establecidos y superando las expectativas de nuestros clientes.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-check-circle text-success me-2"></i>Calidad Garantizada</h5>
+                            <p>Certificaciones internacionales y control de calidad en cada etapa.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-clock text-success me-2"></i>Entrega Puntual</h5>
+                            <p>Cumplimos con los cronogramas establecidos sin comprometer la calidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <i class="fas fa-users display-1" style="color: var(--primary-color);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Contáctanos</h2>
+                    <p class="lead">¿Tienes un proyecto en mente? Hablemos y hagámoslo realidad.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <form class="bg-white p-4 rounded shadow">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" id="telefono">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="servicio" class="form-label">Servicio de Interés</label>
+                                <select class="form-select" id="servicio">
+                                    <option value="">Seleccionar servicio</option>
+                                    <option value="diseno">Diseño Arquitectónico</option>
+                                    <option value="construccion">Construcción</option>
+                                    <option value="ingenieria">Ingeniería Civil</option>
+                                    <option value="residencial">Construcción Residencial</option>
+                                    <option value="industrial">Obras Industriales</option>
+                                    <option value="remodelacion">Remodelaciones</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom btn-lg">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <h3 class="mb-4">Información de Contacto</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <strong>Dirección</strong><br>
+                                Av. Construcción 123<br>
+                                Mérida, Yucatán, México
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <strong>Teléfono</strong><br>
+                                +52 999 123 4567
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@constructorpro.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div>
+                                <strong>Horario</strong><br>
+                                Lun - Vie: 8:00 AM - 6:00 PM<br>
+                                Sáb: 9:00 AM - 2:00 PM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-hard-hat me-2"></i>ConstructorPro</h5>
+                    <p>Especialistas en ingeniería y construcción con más de 15 años de experiencia transformando ideas en realidades sólidas.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Diseño</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Construcción</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Ingeniería</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Remodelación</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Empresa</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Nosotros</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Proyectos</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Equipo</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Certificaciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Newsletter</h5>
+                    <p>Suscríbete para recibir noticias y actualizaciones sobre nuestros proyectos.</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Tu email">
+                        <button class="btn btn-primary-custom" type="submit">Suscribir</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 ConstructorPro. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-light text-decoration-none me-3">Política de Privacidad</a>
+                    <a href="#" class="text-light text-decoration-none">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+
+        // Newsletter subscription handler
+        document.querySelector('footer form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por suscribirte a nuestro newsletter!');
+            this.reset();
+        });
+
+        // Add animation to stats when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalNumber = parseInt(stat.textContent);
+                        let currentNumber = 0;
+                        const increment = finalNumber / 50;
+                        
+                        const counter = setInterval(() => {
+                            currentNumber += increment;
+                            if (currentNumber >= finalNumber) {
+                                stat.textContent = finalNumber + '+';
+                                clearInterval(counter);
+                            } else {
+                                stat.textContent = Math.floor(currentNumber) + '+';
+                            }
+                        }, 30);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>

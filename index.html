@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OBRAS E INGENIERÍA - Construcción y Desarrollo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #e67e22;
+        --accent-color: #34495e;
+        --light-bg: #ecf0f1;
+        --dark-bg: #1a252f;
+        --text-light: #95a5a6;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: #2c3e50;
+      }
+
+      .navbar {
+        background-color: var(--dark-bg) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+      }
+
+      .navbar-brand {
+        font-weight: 900;
+        font-size: 1.8rem;
+        color: white !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem !important;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: var(--secondary-color) !important;
+        transform: translateY(-2px);
+      }
+
+      .hero-section {
+        background: linear-gradient(
+            135deg,
+            rgba(44, 62, 80, 0.9),
+            rgba(52, 73, 94, 0.8)
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23bdc3c7" width="1200" height="800"/><g fill-opacity="0.2"><polygon fill="%23ffffff" points="100,200 300,100 500,300 300,400"/><polygon fill="%23ffffff" points="700,150 900,50 1100,250 900,350"/><rect fill="%23ffffff" x="200" y="500" width="150" height="200"/><rect fill="%23ffffff" x="450" y="450" width="120" height="250"/><rect fill="%23ffffff" x="650" y="480" width="180" height="220"/></g></svg>');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 8rem 0 6rem;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-subtitle {
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin-bottom: 2.5rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .btn-primary-custom {
+        background: linear-gradient(45deg, var(--secondary-color), #d68910);
+        border: none;
+        padding: 15px 35px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+      }
+
+      .btn-primary-custom:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(230, 126, 34, 0.6);
+        background: linear-gradient(45deg, #d68910, var(--secondary-color));
+      }
+
+      .btn-outline-custom {
+        border: 2px solid white;
+        color: white;
+        padding: 15px 35px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        background: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-custom:hover {
+        background: white;
+        color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      .section-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary-color);
+      }
+
+      .service-card {
+        border: none;
+        background: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        height: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, var(--secondary-color), #d68910);
+      }
+
+      .service-icon {
+        font-size: 3.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover .service-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .stats-section {
+        background: linear-gradient(
+          135deg,
+          var(--dark-bg),
+          var(--primary-color)
+        );
+        color: white;
+        padding: 6rem 0;
+        position: relative;
+      }
+
+      .stats-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+        background-size: 50px 50px;
+      }
+
+      .stat-item {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .stat-number {
+        font-size: 4rem;
+        font-weight: 900;
+        color: var(--secondary-color);
+        display: block;
+        margin-bottom: 1rem;
+      }
+
+      .stat-label {
+        font-size: 1.2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .projects-section {
+        padding: 6rem 0;
+        background: var(--light-bg);
+      }
+
+      .project-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        height: 350px;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 60%,
+          rgba(0, 0, 0, 0.9)
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: 2rem;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .about-section {
+        padding: 6rem 0;
+      }
+
+      .about-feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .about-icon {
+        font-size: 2rem;
+        color: var(--secondary-color);
+        margin-right: 1rem;
+        width: 60px;
+      }
+
+      .contact-section {
+        background: var(--light-bg);
+        padding: 6rem 0;
+      }
+
+      .contact-form {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-info {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        color: white;
+        padding: 3rem;
+        border-radius: 20px;
+        height: 100%;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .contact-icon {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        margin-right: 1.5rem;
+        width: 40px;
+      }
+
+      .form-control {
+        border: 2px solid #ecf0f1;
+        border-radius: 10px;
+        padding: 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.25);
+      }
+
+      .form-label {
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 0.8rem;
+      }
+
+      footer {
+        background: var(--dark-bg);
+        color: white;
+        padding: 4rem 0 2rem;
+      }
+
+      .footer-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: var(--secondary-color);
+        text-transform: uppercase;
+      }
+
+      .social-icons a {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background: var(--secondary-color);
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        margin-right: 1rem;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+
+      .social-icons a:hover {
+        background: #d68910;
+        transform: translateY(-3px);
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--secondary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background: #d68910;
+        transform: translateY(-3px);
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-section {
+          padding: 5rem 0 4rem;
+        }
+
+        .stat-number {
+          font-size: 3rem;
+        }
+
+        .project-card {
+          height: 250px;
+        }
+      }
+
+      .loading-animation {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .loading-animation.loaded {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#inicio">
+          <i class="fas fa-hard-hat me-2"></i>OBRAS E INGENIERÍA
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#inicio">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#servicios">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#proyectos">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#nosotros">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="loading-animation">
+              <h1 class="hero-title">OBRAS E<br />INGENIERÍA</h1>
+              <p class="hero-subtitle">
+                En OEI somos una empresa joven de profesionales donde a través
+                de nuestra experiencia multidisciplinaria ofrecemos soluciones
+                versátiles a las propuestas de nuestros clientes.
+              </p>
+              <div class="mb-3">
+                <h3
+                  style="
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: var(--secondary-color);
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                  "
+                >
+                  "BUILDING A BETTER WORLD"
+                </h3>
+              </div>
+              <div class="d-flex flex-wrap gap-3 mt-4">
+                <a href="#contacto" class="btn btn-primary-custom"
+                  >Solicitar Cotización</a
+                >
+                <a href="#proyectos" class="btn btn-outline-custom"
+                  >Ver Proyectos</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="text-center loading-animation">
+              <i
+                class="fas fa-city"
+                style="
+                  font-size: 8rem;
+                  color: var(--secondary-color);
+                  opacity: 0.9;
+                "
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-5" style="padding: 6rem 0 !important">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title loading-animation">Nuestros Servicios</h2>
+          </div>
+        </div>
+        <p
+          class="text-center mb-5"
+          style="
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+          "
+        >
+          Nos enfocamos en desarrollar Proyectos de Ingeniería y Construcción
+          Residenciales, Comerciales e Industriales.
+        </p>
+        <div class="row g-4">
+          <div class="col-lg-6 col-md-6">
+            <div class="card service-card p-4 text-center loading-animation">
+              <div class="card-body">
+                <i class="fas fa-drafting-compass service-icon"></i>
+                <h4 class="mb-3">Proyectos de Ingeniería y Arquitectura</h4>
+                <ul
+                  class="text-start mb-3"
+                  style="list-style: none; padding-left: 0"
+                >
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Diseño
+                    Arquitectónico
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Proyectos de
+                    Ingenierías
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Costos y
+                    Presupuestos
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Control de
+                    obra
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="card service-card p-4 text-center loading-animation">
+              <div class="card-body">
+                <i class="fas fa-tools service-icon"></i>
+                <h4 class="mb-3">Construcción y Mantenimiento</h4>
+                <ul
+                  class="text-start mb-3"
+                  style="list-style: none; padding-left: 0"
+                >
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Obra Civil
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Instalaciones
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Acabados
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Carpintería
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Cancelería
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Herrería
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card service-card p-4 text-center loading-animation">
+              <div class="card-body">
+                <i class="fas fa-home service-icon"></i>
+                <h4 class="mb-3">Construcción Residencial</h4>
+                <p>
+                  Desarrollo y construcción de proyectos habitacionales, casas
+                  unifamiliares y desarrollos residenciales con los más altos
+                  estándares de calidad.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card service-card p-4 text-center loading-animation">
+              <div class="card-body">
+                <i class="fas fa-building service-icon"></i>
+                <h4 class="mb-3">Construcción Comercial</h4>
+                <p>
+                  Edificación de espacios comerciales, oficinas, centros
+                  comerciales y complejos empresariales adaptados a las
+                  necesidades del cliente.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card service-card p-4 text-center loading-animation">
+              <div class="card-body">
+                <i class="fas fa-industry service-icon"></i>
+                <h4 class="mb-3">Construcción Industrial</h4>
+                <p>
+                  Especialistas en construcción de plantas industriales, naves
+                  manufactureras, bodegas y complejos de producción.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item loading-animation">
+              <span class="stat-number counter" data-target="50">0</span>
+              <div class="stat-label">Proyectos Completados</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item loading-animation">
+              <span class="stat-number counter" data-target="5">0</span>
+              <div class="stat-label">Años de Experiencia</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item loading-animation">
+              <span class="stat-number counter" data-target="30">0</span>
+              <div class="stat-label">Clientes Satisfechos</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-item loading-animation">
+              <span class="stat-number counter" data-target="15">0</span>
+              <div class="stat-label">Profesionales</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="projects-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title loading-animation">
+              Proyectos Destacados
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card loading-animation">
+              <div class="project-overlay">
+                <div>
+                  <h4 class="project-title">
+                    Desarrollo Residencial Los Álamos
+                  </h4>
+                  <p>
+                    Complejo habitacional de 50 casas unifamiliares con diseño
+                    moderno y espacios verdes integrados.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card loading-animation">
+              <div class="project-overlay">
+                <div>
+                  <h4 class="project-title">Centro Comercial Vista Alegre</h4>
+                  <p>
+                    Plaza comercial de 8,000 m² con locales comerciales, área de
+                    comidas y estacionamiento.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card loading-animation">
+              <div class="project-overlay">
+                <div>
+                  <h4 class="project-title">Nave Industrial Textil San Juan</h4>
+                  <p>
+                    Planta industrial de 12,000 m² para manufactura textil con
+                    sistemas de ventilación especializados.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card loading-animation">
+              <div class="project-overlay">
+                <div>
+                  <h4 class="project-title">
+                    Oficinas Corporativas Torre Mérida
+                  </h4>
+                  <p>
+                    Edificio de oficinas de 8 pisos con diseño contemporáneo y
+                    sistemas de eficiencia energética.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card loading-animation">
+              <div class="project-overlay">
+                <div>
+                  <h4 class="project-title">Casa Residencial Premium</h4>
+                  <p>
+                    Vivienda unifamiliar de lujo de 400 m² con acabados de alta
+                    calidad y tecnología domótica.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="project-card loading-animation">
+              <div class="project-overlay">
+                <div>
+                  <h4 class="project-title">Bodega Logística El Progreso</h4>
+                  <p>
+                    Centro de distribución de 15,000 m² con muelles de carga y
+                    sistemas de almacenamiento automatizado.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="loading-animation">
+              <h2 class="section-title text-start">¿Quiénes Somos?</h2>
+              <p class="lead mb-4">
+                En OEI somos una empresa joven de profesionales donde a través
+                de nuestra experiencia multidisciplinaria ofrecemos soluciones
+                versátiles a las propuestas de nuestros clientes.
+              </p>
+              <p class="mb-4">
+                Nos enfocamos en desarrollar Proyectos de Ingeniería y
+                Construcción Residenciales, Comerciales e Industriales.
+              </p>
+
+              <div class="about-feature">
+                <i class="fas fa-bullseye about-icon"></i>
+                <div>
+                  <h5 class="mb-2">Nuestra Misión</h5>
+                  <p class="mb-0">
+                    Ofrecer servicios de Construcción e Ingeniería rentables y
+                    eficientes a través de propuestas innovadoras y de calidad,
+                    para así dar ese valor agregado a los proyectos más
+                    importantes de nuestros colaboradores y clientes.
+                  </p>
+                </div>
+              </div>
+
+              <div class="about-feature">
+                <i class="fas fa-eye about-icon"></i>
+                <div>
+                  <h5 class="mb-2">Nuestra Visión</h5>
+                  <p class="mb-0">
+                    Ser el grupo constructor más importante de México, llevando
+                    a cabo la aplicación de diferentes disciplinas como la
+                    Ciencia y la Ingeniería, garantizando la prosperidad
+                    tecnológica, ambiental, y socioeconómica de nuestros
+                    colaboradores y clientes.
+                  </p>
+                </div>
+              </div>
+
+              <div class="about-feature">
+                <i class="fas fa-users about-icon"></i>
+                <div>
+                  <h5 class="mb-2">Equipo Profesional</h5>
+                  <p class="mb-0">
+                    Empresa joven con profesionales experimentados y
+                    multidisciplinarios listos para cualquier desafío de
+                    construcción e ingeniería.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="text-center loading-animation">
+              <i
+                class="fas fa-helmet-safety"
+                style="
+                  font-size: 10rem;
+                  color: var(--primary-color);
+                  opacity: 0.8;
+                "
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title loading-animation">Contáctanos</h2>
+            <p class="text-center lead mb-5 loading-animation">
+              ¿Tienes un proyecto en mente? Nuestro equipo de expertos está
+              listo para hacer realidad tus ideas.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mb-5">
+            <div class="contact-form loading-animation">
+              <form id="contactForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="nombre" class="form-label"
+                      >Nombre Completo *</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nombre"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="empresa" class="form-label">Empresa</label>
+                    <input type="text" class="form-control" id="empresa" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label"
+                      >Correo Electrónico *</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefono" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="servicio" class="form-label"
+                      >Servicio de Interés</label
+                    >
+                    <select class="form-select form-control" id="servicio">
+                      <option value="">Seleccionar servicio</option>
+                      <option value="diseno">Diseño y Planificación</option>
+                      <option value="construccion">Construcción Civil</option>
+                      <option value="industrial">Obras Industriales</option>
+                      <option value="infraestructura">Infraestructura</option>
+                      <option value="mantenimiento">Mantenimiento</option>
+                      <option value="consultoria">Consultoría</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="presupuesto" class="form-label"
+                      >Presupuesto Estimado</label
+                    >
+                    <select class="form-select form-control" id="presupuesto">
+                      <option value="">Seleccionar rango</option>
+                      <option value="50k-100k">$50,000 - $100,000</option>
+                      <option value="100k-500k">$100,000 - $500,000</option>
+                      <option value="500k-1m">$500,000 - $1,000,000</option>
+                      <option value="1m+">Más de $1,000,000</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label for="mensaje" class="form-label"
+                    >Descripción del Proyecto *</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="mensaje"
+                    rows="5"
+                    placeholder="Cuéntanos sobre tu proyecto, ubicación, timeline y cualquier detalle relevante..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary-custom btn-lg">
+                  Enviar Solicitud
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-info loading-animation">
+              <h3 class="mb-4">Información de Contacto</h3>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <div>
+                  <strong>Oficinas Corporativas</strong><br />
+                  Av. Colón #123, Col. García Ginerés<br />
+                  Mérida, Yucatán 97070, México
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone contact-icon"></i>
+                <div>
+                  <strong>Teléfono Principal</strong><br />
+                  +52 999 456 7890<br />
+                  +52 999 456 7891
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope contact-icon"></i>
+                <div>
+                  <strong>Correo Electrónico</strong><br />
+                  contacto@oei.com.mx
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-whatsapp contact-icon"></i>
+                <div>
+                  <strong>WhatsApp</strong><br />
+                  +52 1 999 356 6156
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-clock contact-icon"></i>
+                <div>
+                  <strong>Horarios de Atención</strong><br />
+                  Lun - Vie: 8:00 AM - 7:00 PM<br />
+                  Sáb: 9:00 AM - 3:00 PM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <h5 class="footer-title">
+              <i class="fas fa-hard-hat me-2"></i>OBRAS E INGENIERÍA
+            </h5>
+            <p class="mb-4">
+              Empresa joven de profesionales con experiencia multidisciplinaria.
+              Ofrecemos soluciones versátiles en construcción e ingeniería.
+              "Building a Better World"
+            </p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://wa.me/5219993566156" aria-label="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5 class="footer-title">Servicios</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#servicios" class="text-light text-decoration-none"
+                  >Ingeniería y Arquitectura</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#servicios" class="text-light text-decoration-none"
+                  >Construcción Residencial</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#servicios" class="text-light text-decoration-none"
+                  >Construcción Comercial</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#servicios" class="text-light text-decoration-none"
+                  >Construcción Industrial</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#servicios" class="text-light text-decoration-none"
+                  >Mantenimiento</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#servicios" class="text-light text-decoration-none"
+                  >Presupuestos</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5 class="footer-title">Empresa</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#nosotros" class="text-light text-decoration-none"
+                  >Sobre Nosotros</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#proyectos" class="text-light text-decoration-none"
+                  >Proyectos</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Equipo</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Certificaciones</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Trabajos</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5 class="footer-title">Recursos</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Catálogo de Servicios</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Casos de Éxito</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Documentos Técnicos</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Normativas</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5 class="footer-title">Legal</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Política de Privacidad</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Términos de Servicio</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Aviso Legal</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Cookies</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Código de Ética</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4" style="border-color: var(--accent-color)" />
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <p class="mb-0">
+              &copy; 2025 OBRAS E INGENIERÍA. Todos los derechos reservados.
+            </p>
+            <small class="text-muted"
+              >Ingeniería Civil | Registro CMIC No. 12345 | RFC:
+              OEI850101ABC</small
+            >
+          </div>
+          <div class="col-md-4 text-end">
+            <small class="text-muted"
+              >Diseñado y desarrollado con
+              <i class="fas fa-heart text-danger"></i> en Mérida, Yucatán</small
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // DOM Content Loaded
+      document.addEventListener('DOMContentLoaded', function () {
+        // Initialize animations
+        initializeAnimations();
+        // Initialize scroll effects
+        initializeScrollEffects();
+        // Initialize form handling
+        initializeFormHandling();
+        // Initialize counters
+        initializeCounters();
+      });
+
+      // Animation on scroll
+      function initializeAnimations() {
+        const animatedElements =
+          document.querySelectorAll('.loading-animation');
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('loaded');
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px',
+          }
+        );
+
+        animatedElements.forEach((el) => observer.observe(el));
+      }
+
+      // Scroll effects
+      function initializeScrollEffects() {
+        const backToTopBtn = document.getElementById('backToTop');
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', () => {
+          // Back to top button
+          if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+          } else {
+            backToTopBtn.classList.remove('show');
+          }
+
+          // Navbar background on scroll
+          if (window.pageYOffset > 50) {
+            navbar.style.background = 'rgba(26, 37, 47, 0.95)';
+            navbar.style.backdropFilter = 'blur(10px)';
+          } else {
+            navbar.style.background = 'var(--dark-bg)';
+            navbar.style.backdropFilter = 'none';
+          }
+        });
+
+        // Back to top functionality
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+              window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth',
+              });
+            }
+          });
+        });
+      }
+
+      // Form handling
+      function initializeFormHandling() {
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          // Simple form validation
+          const nombre = document.getElementById('nombre').value;
+          const email = document.getElementById('email').value;
+          const mensaje = document.getElementById('mensaje').value;
+
+          if (!nombre || !email || !mensaje) {
+            showNotification(
+              'Por favor completa todos los campos obligatorios.',
+              'error'
+            );
+            return;
+          }
+
+          // Simulate form submission
+          showNotification(
+            '¡Gracias por tu mensaje! Nos pondremos en contacto contigo en las próximas 24 horas.',
+            'success'
+          );
+          contactForm.reset();
+        });
+      }
+
+      // Counter animation
+      function initializeCounters() {
+        const counters = document.querySelectorAll('.counter');
+        let counted = false;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !counted) {
+                counted = true;
+                counters.forEach((counter) => {
+                  const target = parseInt(counter.getAttribute('data-target'));
+                  let current = 0;
+                  const increment = target / 50;
+
+                  const updateCounter = () => {
+                    if (current < target) {
+                      current += increment;
+                      counter.textContent = Math.floor(current);
+                      requestAnimationFrame(updateCounter);
+                    } else {
+                      counter.textContent = target;
+                    }
+                  };
+
+                  updateCounter();
+                });
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) observer.observe(statsSection);
+      }
+
+      // Notification system
+      function showNotification(message, type) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `alert alert-${
+          type === 'success' ? 'success' : 'danger'
+        } alert-dismissible fade show position-fixed`;
+        notification.style.cssText = `
+                top: 100px;
+                right: 20px;
+                z-index: 9999;
+                min-width: 300px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+        notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+
+        document.body.appendChild(notification);
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+          }
+        }, 5000);
+      }
+
+      // Particle effect for hero section (optional enhancement)
+      function createParticles() {
+        const heroSection = document.querySelector('.hero-section');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.style.cssText = `
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background: rgba(255,255,255,0.3);
+                    border-radius: 50%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    animation: float ${
+                      3 + Math.random() * 4
+                    }s ease-in-out infinite;
+                `;
+          heroSection.appendChild(particle);
+        }
+      }
+
+      // Add floating animation CSS
+      const style = document.createElement('style');
+      style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); opacity: 0.3; }
+                50% { transform: translateY(-20px); opacity: 1; }
+            }
+        `;
+      document.head.appendChild(style);
+
+      // Initialize particles on load
+      window.addEventListener('load', createParticles);
+
+      // Loading screen effect
+      window.addEventListener('load', function () {
+        document.body.style.overflow = 'visible';
+
+        // Stagger animation for initial elements
+        const heroElements = document.querySelectorAll(
+          '.hero-section .loading-animation'
+        );
+        heroElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('loaded');
+          }, index * 200);
+        });
+      });
+    </script>
+  </body>
+</html>
